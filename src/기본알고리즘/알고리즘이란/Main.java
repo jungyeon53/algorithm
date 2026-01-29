@@ -32,22 +32,26 @@ public class Main {
 
     // 세값의 대소관계인 13가지 조합의 중앙값을 구하여 출력
     static int mid(int a, int b, int c){
-        int med = 0;
-        if(a >= b){
-            if(b >= c){
-                med = b;
-            }else if(a >= c){
-                med = c;
-            }
+    int med = 0;
+    if(a >= b){
+        if(b >= c){
+            med = b;        // a ≥ b ≥ c
+        } else if(a >= c){
+            med = c;        // a ≥ c > b
         } else {
-            if(a >= c){
-                med = a;
-            } else if (b >= c) {
-                med = c;
-            }
+            med = a;        // c > a ≥ b (추가)
         }
-        return med;
+    } else {
+        if(a >= c){
+            med = a;        // b > a ≥ c
+        } else if(b >= c){
+            med = c;        // b ≥ c > a
+        } else {
+            med = b;        // c > b > a (추가)
+        }
     }
+    return med;
+}
 
     // 가우스의 덧셈
     static int sum(int n){
