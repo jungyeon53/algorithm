@@ -10,7 +10,7 @@ public class Q14 {
         System.out.println("변을 입력하세요 n :");
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
-        triangleRU(n);
+        triangleRB(n);
     }
 
     // 직각이등변삼각형을 출력 , 왼쪽 아래가 직각
@@ -35,12 +35,32 @@ public class Q14 {
     }
 
     // 오른쪽 위가 직각인 삼각형
-    static void triangleRU(int n){
+    static void triangleRU(int n) {
+        for (int row = 0; row < n; row++) {
 
-        for(int j = 1; j <= n; j++){
-            for(int i = 1; j <= n-i; i++){
+            for (int space = 0; space < row; space++) {
+                System.out.print(" ");
+            }
+
+            for (int col = 0; col < n - row; col++) {
                 System.out.print("*");
             }
+            System.out.println();
+        }
+    }
+
+    // 오른쪽 아래가 직각인 삼각형
+    static void triangleRB(int n) {
+        for (int row = 0; row < n; row++) {
+
+            for (int space = 0; space < n - row - 1; space++) {
+                System.out.print(" ");
+            }
+
+            for (int star = 0; star <= row; star++) {
+                System.out.print("*");
+            }
+
             System.out.println();
         }
     }
